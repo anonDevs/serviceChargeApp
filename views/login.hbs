@@ -1,0 +1,28 @@
+
+    {{> header}}
+    
+    <div class="row pos-rel login__parent">
+      <div class="login">
+        {{#if error}}
+        <div style="color: red; text-align: center;" class="mb-small error">Incorrect Username/ Password</div>
+        {{/if}}
+        <form action="/login" method="POST" class="login__form">
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            class="login__input login__name"
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+            class="login__input login__password"
+          />
+          <input type="submit" class="login__sumbit mt-small" value="Login" />
+        </form>
+      </div>
+    </div>

@@ -1,0 +1,21 @@
+    <div class="row-full-width bg-primary">
+      <div class="row mb-small">
+        <div class="navbar">
+          <div class="navbar__logo">MafSvc</div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <ul class="nav">
+        <li class="nav__item"><a href="/" class="nav__link">Home</a></li>
+        {{#if isLoggedOn}}
+        <li class="nav__item"><a href="/cpanel" class="nav__link">Cpanel</a></li>
+        {{/if}}
+        {{#unless isLoggedOn}}
+        <li class="nav__item"><a href="/login" class="nav__link">Login</a></li>
+        {{/unless}}
+        {{#if isLoggedOn}}
+        <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
+        {{/if}}
+      <ul>
+    </div>

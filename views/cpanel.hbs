@@ -1,0 +1,45 @@
+{{> header}}
+
+<div class="row">
+        <h1 class="mt-medium text-center">Hi, Admin! Welcome to the Cpanel!</h1>
+        <p class="text-center">Here, you can select the date and amount for the service charge and occupancy.</p>
+    </div>
+    <div class="row">
+        <form action="/cpanel?_method=PATCH" method="post" class="dataForm">
+            <fieldset>
+                <legend>Service Charge</legend>
+                <div class="grd-1-of-2">
+                    <label for="svcAmount">Service Charge ($) :</label>
+                    <input type="number" class="dataForm__input" name="svcAmount" value="{{{svcAmount}}}" id="svcAmount">
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="svcDate">Service Charge Date:</label>
+                    <input type="date" class="dataForm__input" name="svcDate" 
+                    value="{{svcDate}}"
+                    id="svcDate">
+                </div>
+            </fieldset>
+            <fieldset class="mt-medium">
+                <legend>Occupancy</legend>
+                <div class="grd-1-of-2">
+                    <label for="occToday">Current Occupancy (%) :</label>
+                    <input type="number" class="dataForm__input" name="occToday" 
+                    value="{{occToday}}"
+                    id="occToday">
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="occYesterday">Previous Occupancy (%) :</label>
+                    <input type="number" class="dataForm__input" name="occYesterday" 
+                    value="{{occYesterday}}"
+                    id="occYesterday">
+                </div>
+            </fieldset>
+            
+            <input type="submit" value="Save" class="dataForm__submit">
+            <!-- <div class="grd-1-of-3">
+                <label for="svcAmount">Service Charge ($) :</label>
+                <input type="number" name="svcAmount" id="svcAmount">
+            </div> -->
+            
+            
+        </form>

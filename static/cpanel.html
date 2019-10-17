@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>MafSvc</title>
+  </head>
+  <body>
+    <div class="row-full-width bg-primary">
+      <div class="row mb-small">
+        <div class="navbar">
+          <div class="navbar__logo">MafSvc</div>
+        </div>
+      </div>
+    </div>
+    <div class="row ">
+      <ul class="nav">
+        <li class="nav__item"><a href="#" class="nav__link">Home</a></li>
+        <li class="nav__item"><a href="#" class="nav__link">Cpanel</a></li>
+      <ul>
+    </div>
+    <div class="row">
+        <h1 class="mt-medium text-center">Hi, Admin! Welcome to the Cpanel!</h1>
+        <p class="text-center">Here, you can select the date and amount for the service charge and occupancy.</p>
+    </div>
+    <div class="row">
+        <form action="" class="dataForm">
+            <fieldset>
+                <legend>Service Charge</legend>
+                <div class="grd-1-of-2">
+                    <label for="svcAmount">Service Charge ($) :</label>
+                    <input type="number" class="dataForm__input" name="svcAmount" id="svcAmount">
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="svcDate">Service Charge Date:</label>
+                    <input type="date" class="dataForm__input" name="svcDate" id="svcDate">
+                </div>
+            </fieldset>
+            <fieldset class="mt-medium">
+                <legend>Occupancy</legend>
+                <div class="grd-1-of-2">
+                    <label for="occupancyCurr">Current Occupancy (%) :</label>
+                    <input type="number" class="dataForm__input" name="occupancyCurr" id="occupancyCurr">
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="occupancyPrev">Previous Occupancy (%) :</label>
+                    <input type="number" class="dataForm__input" name="occupancyPrev" id="occupancyPrev">
+                </div>
+            </fieldset>
+            
+            <input type="submit" value="Save" class="dataForm__submit">
+            <!-- <div class="grd-1-of-3">
+                <label for="svcAmount">Service Charge ($) :</label>
+                <input type="number" name="svcAmount" id="svcAmount">
+            </div> -->
+            
+            
+        </form>
+    </div>
+  </body>
+</html>

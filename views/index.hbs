@@ -1,0 +1,20 @@
+{{> header }}
+
+    <div class="row pos-rel svc__parent">
+      <div class="svc">
+        <h1 class="svc__amount">
+          ${{svcAmount}}
+        </h1>
+        <p class="svc__date">as of {{svcDate}}</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1-of-2">
+        <h1 class="occupancy occupancy--yesterday">Yesterday's Occupancy</h1>
+        <p class="occupancy__amount">{{occYesterday}}%</p>
+      </div>
+      <div class="col-1-of-2">
+        <h1 class="occupancy occupancy--today">Today's Occupancy</h1>
+        <p class="occupancy__amount">{{occToday}}%</p>
+      </div>
+    </div>

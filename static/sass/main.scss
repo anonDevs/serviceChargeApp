@@ -1,0 +1,399 @@
+//Variables
+//colors var
+$primaryColor: #cfb023;
+$whiteColor: #fff;
+
+//fonts var
+$fontstack: "helvetica", "arial", sans-serif;
+$defaultFontSize: 1.3em;
+$headingFontSize: 5em;
+$mediumFontSize: 2.5em;
+
+//margins var
+$mbBig: 5em !important;
+$mbMedium: 3em !important;
+$mbSmall: 2em !important;
+
+$mtBig: 5em !important;
+$mtMedium: 3em !important;
+$mtSmall: 2em !important;
+
+$mrBig: 5em !important;
+$mrMedium: 3em !important;
+$mrSmall: 2em !important;
+
+$mlBig: 5em !important;
+$mlMedium: 3em !important;
+$mlSmall: 2em !important;
+
+$gutterWidth: 2em;
+
+//mixins
+@mixin clearfix {
+  &:after {
+    display: table;
+    content: "";
+    clear: both;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $breakpoint == tabPort {
+    @media (max-width: 720px) {
+      @content;
+    }
+  } @else if $breakpoint == tabLand {
+    @media (max-width: 900px) {
+      @content;
+    }
+  } @else if $breakpoint == bigDesktop {
+    @media (min-width: 1500px) {
+      @content;
+    }
+  }
+}
+
+//Reset
+* {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  font-family: $fontstack;
+}
+a {
+  text-decoration: none;
+  color: $primaryColor;
+}
+h1 {
+  font-size: 2.5em;
+}
+p {
+  font-size: 1.6em;
+}
+input[type="submit"] {
+  padding: 1em;
+  font-size: 1.2em;
+  background-color: $primaryColor;
+  color: $whiteColor;
+}
+
+//layout
+.row-full-width {
+  width: 100%;
+}
+.row {
+  max-width: 114em;
+  margin: 0 auto;
+
+  @include respond(tabLand) {
+    width: 80%;
+  }
+
+  @include clearfix();
+
+  [class^="col-"] {
+    //padding: 30px;
+    //margin-bottom: 2em;
+    //background-color: $primaryColor;
+    //ABOVE TWO LINES ARE FOR DEVELOPMENT TESTING
+
+    float: left;
+
+    &:not(:last-child) {
+      margin-right: $gutterWidth;
+    }
+
+    @include clearfix();
+  }
+  .col-1-of-2 {
+    width: calc(50% - (0.5 * #{$gutterWidth}));
+
+    @include respond(phone) {
+      width: 100%;
+      margin-right: 0;
+      //background-color: blue;
+    }
+  }
+  .col-1-of-3 {
+    width: calc(33.333333333% - (0.3333 * 2 * #{$gutterWidth}));
+
+    @include respond(tabPort) {
+      width: 100%;
+      margin-right: 0;
+      //background-color: purple;
+    }
+  }
+  .col-2-of-3 {
+    width: calc(66.666666666% - (0.34 * #{$gutterWidth}));
+    @include respond(tabPort) {
+      width: 100%;
+      margin-right: 0;
+      //background-color: purple;
+    }
+  }
+}
+
+[class^="grd-"] {
+  //padding: 30px;
+  //margin-bottom: 2em;
+  //background-color: $primaryColor;
+  //ABOVE ARE FOR DEVELOPMENT PURPOSES
+  float: left;
+  @include clearfix();
+}
+
+.grd-1-of-3 {
+  width: calc(33.333333333% - (0.3333 * 2 * #{$gutterWidth}));
+
+  &:not(:nth-child(3n)) {
+    margin-right: $gutterWidth;
+
+    @include respond(tabPort) {
+      margin-right: 0;
+    }
+  }
+
+  &:not(:nth-child(2n-1)) {
+    @include respond(tabPort) {
+      margin-right: $gutterWidth;
+    }
+  }
+
+  @include respond(tabPort) {
+    width: calc(50% - (0.5 * #{$gutterWidth}));
+  }
+
+  @include respond(phone) {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.grd-1-of-2 {
+  width: calc(50% - (0.5 * #{$gutterWidth}));
+  &:not(:nth-child(2n -1)) {
+    margin-right: $gutterWidth;
+  }
+
+  @include respond(tabPort) {
+    width: 100%;
+    margin-top: 1em;
+    margin-right: 0;
+  }
+}
+
+//Navbar
+.navbar {
+  font-size: $headingFontSize;
+
+  &__logo {
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5em;
+    color: $whiteColor;
+  }
+}
+
+//nav
+.nav {
+  list-style-type: none;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+  font-size: 1.7em;
+
+  &__item {
+    display: inline-block;
+    text-align: center;
+  }
+
+  &__link {
+    margin: 0 auto;
+    text-align: center;
+    padding: 1em;
+    transition: all 0.2s;
+    margin-left: -5px;
+
+    &:hover,
+    &:active {
+      background-color: $primaryColor;
+      color: white;
+    }
+  }
+}
+
+//service charge
+.svc {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &__amount {
+    font-size: 13em;
+    margin: 0em;
+
+    @include respond(phone) {
+      font-size: 9em;
+    }
+  }
+
+  &__date {
+    font-size: 2em;
+    text-align: center;
+    color: $primaryColor;
+  }
+}
+
+.svc__parent {
+  height: calc(60vh - 19em);
+  margin-top: 11em;
+}
+
+//occupancy
+.occupancy {
+  text-align: center;
+}
+.occupancy__amount {
+  text-align: center;
+  color: $primaryColor;
+  font-size: 3em;
+}
+
+//login
+.login {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.5em;
+
+  @include respond(tabPort) {
+    font-size: 1.2em;
+    width: 80%;
+  }
+
+  @include respond(phone) {
+    font-size: 1em;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5em;
+    font-size: 1.7em;
+  }
+
+  &__sumbit {
+    border: none;
+    padding: 1em;
+    background-color: $primaryColor;
+    width: 100%;
+    color: $whiteColor;
+    font-size: 1.5em;
+  }
+}
+
+.login__parent {
+  height: 70vh;
+}
+
+//data form
+.dataForm {
+  font-size: 1.6em;
+  margin-top: 5em;
+
+  fieldset {
+    padding: 2em 1em;
+
+    legend {
+      text-align: center;
+      font-size: 2em;
+    }
+  }
+
+  &__input {
+    background-color: rgba(207, 176, 35, 0.2);
+    border: none;
+  }
+
+  &__submit {
+    text-align: center;
+    width: 9em;
+    margin: 0 auto;
+    border-radius: 3px;
+    display: block;
+    margin-top: 2em;
+    margin-bottom: 3em;
+  }
+
+  [class^="grd-"] > input {
+    width: 100%;
+    padding: 1em;
+    margin-top: 1em;
+  }
+}
+
+//utilities
+.bg-primary {
+  background-color: $primaryColor !important;
+}
+
+.mb-big {
+  margin-bottom: $mbBig;
+}
+.mb-small {
+  margin-bottom: $mbSmall;
+}
+.mb-medium {
+  margin-bottom: $mbMedium;
+}
+
+.mt-big {
+  margin-top: $mtBig;
+}
+.mt-small {
+  margin-top: $mtSmall;
+}
+.mt-medium {
+  margin-top: $mtMedium;
+}
+
+.mr-big {
+  margin-right: $mrBig;
+}
+.mr-small {
+  margin-right: $mrSmall;
+}
+.mr-medium {
+  margin-right: $mrMedium;
+}
+
+.ml-big {
+  margin-left: $mlBig;
+}
+.ml-small {
+  margin-left: $mlSmall;
+}
+.ml-medium {
+  margin-left: $mlMedium;
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.h-100p {
+  height: 100% !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
