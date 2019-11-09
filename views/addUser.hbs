@@ -1,0 +1,30 @@
+{{> header}}
+
+    <div class="row">
+        <h1 class="mt-medium text-center">Add User</h1>
+    </div>
+    <div class="row">
+        <form action="/users/add" method="post" class="dataForm">
+            <fieldset>
+                <legend>User</legend>
+                <div class="grd-1-of-2">
+                    <label for="username">UserName :</label>
+                    <input required type="text" class="dataForm__input" name="username" value="{{user.username}}" id="username">
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="role">User Role :</label>
+                    <select type="select" class="dataForm__input" name="role" id="role">
+                        <option {{selectAdmin}} value="Administrator">Administrator</option>
+                        <option {{selectSuperAdmin}} value="superAdmin">Super Admin</option>
+                    </select>
+                </div>
+                <div class="grd-1-of-2">
+                    <label for="password">Password:</label>
+                    <input required type="password" class="dataForm__input" name="password"
+                    id="passsword">
+                </div>
+            </fieldset>
+            
+            <input type="submit" value="Save" class="dataForm__submit">
+        </form>
+    </div>

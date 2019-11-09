@@ -15,6 +15,9 @@
         <li class="nav__item"><a href="/login" class="nav__link">Login</a></li>
         {{/unless}}
         {{#if isLoggedOn}}
+        <li class="nav__item"><a href="/users" class="nav__link">Manage Users</a></li>
+        {{/if}}
+        {{#if isLoggedOn}}
         <li class="nav__item"><a href="/logout" class="nav__link">Logout</a></li>
         {{/if}}
       <ul>

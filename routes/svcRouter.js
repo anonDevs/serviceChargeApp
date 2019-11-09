@@ -3,30 +3,19 @@ const router = express.Router();
 
 const {
   renderIndex,
-  renderLogin,
   renderCpanel,
-  redirectCpanel,
-  redirectLogin
+  redirectLogin,
+  renderError
 } = require('../controllers/viewsController');
 
-const {
-  updateSc,
-  loginUser,
-  logoutUser
-} = require('../controllers/svcController');
+const { updateSc } = require('../controllers/svcController');
 
 router.route('/').get(renderIndex);
-
-router
-  .route('/login')
-  .get(redirectCpanel, renderLogin)
-  .post(loginUser);
 
 router
   .route('/cpanel')
   .get(redirectLogin, renderCpanel)
   .patch(updateSc);
 
-router.route('/logout').get(logoutUser);
-
+router.route('/error').get(renderError);
 module.exports = router;

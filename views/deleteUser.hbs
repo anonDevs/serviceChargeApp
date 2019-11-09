@@ -1,0 +1,21 @@
+{{> header}}
+
+    <div class="row">
+        <h1 class="mt-medium text-center">Edit User</h1>
+    </div>
+    <div class="row">
+        <form action="/users/delete/{{user.id}}?_method=DELETE" method="post" class="dataForm">
+            <fieldset class="p-huge">
+                <legend>Do you wanna delete this user?</legend>
+                <div class="grd-1-of-2 text-center font-normal">
+                    Username: {{user.username}}
+                </div>
+                <div class="grd-1-of-2 text-center font-normal">
+                    User Role: {{user.role}}
+                </div>
+            </fieldset>
+            
+            <input type="submit" value="Yes" class="dataForm__submit">
+            <a class="dataForm__submit" href="/users">No</a>
+        </form>
+    </div>

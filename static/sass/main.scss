@@ -4,7 +4,7 @@ $primaryColor: #cfb023;
 $whiteColor: #fff;
 
 //fonts var
-$fontstack: "helvetica", "arial", sans-serif;
+$fontstack: 'helvetica', 'arial', sans-serif;
 $defaultFontSize: 1.3em;
 $headingFontSize: 5em;
 $mediumFontSize: 2.5em;
@@ -32,7 +32,7 @@ $gutterWidth: 2em;
 @mixin clearfix {
   &:after {
     display: table;
-    content: "";
+    content: '';
     clear: both;
   }
 }
@@ -67,6 +67,10 @@ body {
   padding: 0;
   font-size: 10px;
   font-family: $fontstack;
+
+  @include respond(phone) {
+    font-size: 7.3px;
+  }
 }
 a {
   text-decoration: none;
@@ -78,7 +82,7 @@ h1 {
 p {
   font-size: 1.6em;
 }
-input[type="submit"] {
+input[type='submit'] {
   padding: 1em;
   font-size: 1.2em;
   background-color: $primaryColor;
@@ -88,6 +92,9 @@ input[type="submit"] {
 //layout
 .row-full-width {
   width: 100%;
+}
+.row-narrow {
+  max-width: 80em !important;
 }
 .row {
   max-width: 114em;
@@ -99,7 +106,7 @@ input[type="submit"] {
 
   @include clearfix();
 
-  [class^="col-"] {
+  [class^='col-'] {
     //padding: 30px;
     //margin-bottom: 2em;
     //background-color: $primaryColor;
@@ -141,7 +148,7 @@ input[type="submit"] {
   }
 }
 
-[class^="grd-"] {
+[class^='grd-'] {
   //padding: 30px;
   //margin-bottom: 2em;
   //background-color: $primaryColor;
@@ -183,6 +190,10 @@ input[type="submit"] {
     margin-right: $gutterWidth;
   }
 
+  &:nth-child(4n) {
+    margin-top: $gutterWidth;
+  }
+
   @include respond(tabPort) {
     width: 100%;
     margin-top: 1em;
@@ -213,6 +224,7 @@ input[type="submit"] {
   &__item {
     display: inline-block;
     text-align: center;
+    margin-top: 1em;
   }
 
   &__link {
@@ -320,6 +332,8 @@ input[type="submit"] {
   }
 
   &__input {
+    width: 100%;
+    margin-top: 20px;
     background-color: rgba(207, 176, 35, 0.2);
     border: none;
   }
@@ -334,11 +348,22 @@ input[type="submit"] {
     margin-bottom: 3em;
   }
 
-  [class^="grd-"] > input {
+  [class^='grd-'] > input {
     width: 100%;
     padding: 1em;
     margin-top: 1em;
   }
+}
+
+// Users Table
+.users-row {
+  div:not(:first-child) {
+    border-left: 1px solid $whiteColor;
+  }
+}
+
+.users-row:nth-child(odd) {
+  background-color: #d8b931cc !important;
 }
 
 //utilities
@@ -386,6 +411,14 @@ input[type="submit"] {
   margin-left: $mlMedium;
 }
 
+.p-medium {
+  padding: 1em;
+}
+
+.p-huge {
+  padding: 5em !important;
+}
+
 .pos-rel {
   position: relative;
 }
@@ -396,4 +429,41 @@ input[type="submit"] {
 
 .text-center {
   text-align: center !important;
+}
+
+.color-white {
+  color: white !important;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.font-normal {
+  font-size: 1.7em;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.grid-three {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.abs-center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -1,0 +1,17 @@
+{{> header}}
+
+    <div class="row mb-big">
+        <h1 class="mt-medium text-center">Users Manager</h1>
+        <p class="text-center">Here, you can manage all the users and their permission levels.</p>
+    </div>
+    {{#each users}}
+    <div class="bg-primary row grid-three font-normal row-narrow users-row color-white">
+        <div class="p-medium">{{username}}</div>
+        <div class="p-medium">{{role}}</div>
+        <div class="p-medium grid-two justify-content-center">
+            <a class="text-center color-white" href="/users/edit/{{id}}">Edit</a>
+            <a class="text-center color-white" href="/users/delete/{{id}}">Delete</a>
+        </div>
+    </div>
+    {{/each}}
+    <a style="display: block; width: 100px; margin: 3em auto; text-align: center; font-size: 1.7em; padding: .5em; color: white; background: #cfb023" href="/users/add">Add User</a>
